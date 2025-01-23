@@ -1,5 +1,5 @@
 const express = require('express');
-const connectDB = require('../config/db'); // Import MongoDB configuration
+const connectDB = require('./config/db'); // Import MongoDB configuration
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -71,8 +71,7 @@ app.post('/contact', async (req, res) => {
   }
 });
 
-app.use('/.netlify/functions',router);
-module.exports.handler=serverless(app)
+
 // Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
